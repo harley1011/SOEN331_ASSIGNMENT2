@@ -20,7 +20,7 @@ public class Test {
 		System.out.println(balancedBinTreeRoot.isBalanced());
 		balancedBinTreeRoot.getLeft().setLeft(new BalancedBinTree(13));
 		//balancedBinTreeRoot.getLeft().getLeft().setLeft(new BalancedBinTree(13));
-	//	balancedBinTreeRoot.getLeft().getLeft().getLeft().setLeft(new BalancedBinTree(13));
+		balancedBinTreeRoot.getLeft().getLeft().getLeft().setLeft(new BalancedBinTree(13));
 		//System.out.println(balancedBinTreeRoot.isBalanced());
 		
 		
