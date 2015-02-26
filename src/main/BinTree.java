@@ -1,9 +1,10 @@
 package main;
 
 import be.ac.ua.ansymo.adbc.annotations.ensures;
+import be.ac.ua.ansymo.adbc.annotations.invariant;
 import be.ac.ua.ansymo.adbc.annotations.requires;
 
-
+@invariant ({"$this.height() >= 1"})
 
 public class BinTree {
 	
