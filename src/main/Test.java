@@ -3,6 +3,7 @@ package main;
 public class Test {
 
 	public static void main(String[] args) {
+		
 		BinTree root = new BinTree(10);
 		root.setLeft(new BinTree(11));
 		root.getLeft().setLeft(new BinTree(12));
@@ -20,7 +21,7 @@ public class Test {
 		System.out.println(balancedBinTreeRoot.isBalanced());
 		balancedBinTreeRoot.getLeft().setLeft(new BalancedBinTree(13));
 		//balancedBinTreeRoot.getLeft().getLeft().setLeft(new BalancedBinTree(13));
-		balancedBinTreeRoot.getLeft().getLeft().getLeft().setLeft(new BalancedBinTree(13));
+		//balancedBinTreeRoot.getLeft().getLeft().getLeft().setLeft(new BalancedBinTree(13));
 		//System.out.println(balancedBinTreeRoot.isBalanced());
 		
 		

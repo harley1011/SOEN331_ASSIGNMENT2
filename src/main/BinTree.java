@@ -4,17 +4,17 @@ import be.ac.ua.ansymo.adbc.annotations.ensures;
 import be.ac.ua.ansymo.adbc.annotations.invariant;
 import be.ac.ua.ansymo.adbc.annotations.requires;
 
-@invariant ({"$this.height() >= 1"})
+@invariant ({"$this.height() >= 1"}) // 1. Regardless of the time, it must always hold that the height of a binary tree is non-zero.
 
 public class BinTree {
 	
 	public long id;
-	public BinTree leftBinTree = null;
-	public BinTree rightBinTree = null;
+	public BinTree leftBinTree; // Stores the left tree for this tree
+	public BinTree rightBinTree; // Store the right tree for this tree
 	
 
-	@requires ({"id != null"}) // 2
-	@ensures({"$this.leftBinTree == null", "$this.rightBinTree == null"}) //3
+	@requires ({"id != null"}) // 2.  Creation of a BinTree entails that the provided id is non-null.
+	@ensures({"$this.leftBinTree == null", "$this.rightBinTree == null"}) //3.  Creation of a new BinTree implies that neither left nor right nodes are occupied.
 	public BinTree(long id) {
 		this.id = id;
 	}
@@ -29,15 +29,21 @@ public class BinTree {
 		return rightBinTree;
 	}
 	
-	@requires({"iBinTree != null", "$this.leftBinTree == null"}) //4,5
-	@ensures({"$this.leftBinTree != null", "$this.leftBinTree == iBinTree"}) //6,7
+	@requires({"iBinTree != null", "$this.leftBinTree == null"}) // 4. setLeft(BinTree iBinTree) will reject parameters which are null.
+																 //5. setLeft(BinTree iBinTree) will make sure it is not overwriting a node.
+	@ensures({"$this.leftBinTree != null", "$this.leftBinTree == iBinTree"}) // 6. setLeft(BinTree iBinTree) will make sure that left is no longer null.
+																		     // 7. setLeft(BinTree iBinTree) will ensure that the left node is indeed what was provided.
+
 	public void setLeft(BinTree iBinTree)
 	{
 		this.leftBinTree = iBinTree;
 	}
 	
-	@requires({"iBinTree != null", "$this.rightBinTree == null"}) //4,5
-	@ensures({"$this.rightBinTree != null", "$this.rightBinTree == iBinTree"}) //6,7
+	@requires({"iBinTree != null", "$this.rightBinTree == null"}) // 8. setRight(BinTree iBinTree) will reject parameters which are null.
+																  // 9. setRight(BinTree iBinTree) will make sure it is not overwriting a node.
+
+	@ensures({"$this.rightBinTree != null", "$this.rightBinTree == iBinTree"}) // 10. setRight(BinTree iBinTree) will make sure that right is no longer null.
+																			   // 11. setRight(BinTree iBinTree) will ensure that the right node is indeed what was provided
 	public void setRight(BinTree iBinTree)
 	{
 		this.rightBinTree = iBinTree;
@@ -69,16 +75,15 @@ public class BinTree {
 		return sum;
 	}
 	
-	@ensures({"$this.height() != 0"}) // 1
 	public int height()
 	{
 		int leftHeight = 1;
 		int rightHeight = 1;
 		if (hasRight())
-			rightHeight += rightBinTree.height();
+			rightHeight += rightBinTree.height(); 
 		if (hasLeft())
 			leftHeight += leftBinTree.height();
 	
-		return ( leftHeight > rightHeight) ? leftHeight : rightHeight;
+		return ( leftHeight > rightHeight) ? leftHeight : rightHeight; // If the left tree has a greater height than the right tree then return its height else return the right trees height
 	}
 }

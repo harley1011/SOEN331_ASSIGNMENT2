@@ -2,7 +2,8 @@ package main;
 
 import be.ac.ua.ansymo.adbc.annotations.invariant;
 
-@invariant ({"$this.isBalanced()"})
+@invariant ({"$super","$this.isBalanced()"}) // 1. The invariants of BinTree must be inherited
+											 // 2. At all times, the threshold must be satisfied.
 public class BalancedBinTree extends BinTree {
 
 	

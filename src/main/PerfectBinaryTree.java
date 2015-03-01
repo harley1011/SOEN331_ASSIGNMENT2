@@ -2,7 +2,7 @@ package main;
 
 import be.ac.ua.ansymo.adbc.annotations.invariant;
 
-@invariant ({"$this.sameHeight()"})
+@invariant ({"$super","$this.sameHeight()"})
 public class PerfectBinaryTree extends FullBinaryTree {
 
 	public PerfectBinaryTree(long id) {
