@@ -9,8 +9,8 @@ import be.ac.ua.ansymo.adbc.annotations.requires;
 public class BinTree {
 	
 	public long id;
-	public BinTree leftBinTree;
-	public BinTree rightBinTree;
+	public BinTree leftBinTree = null;
+	public BinTree rightBinTree = null;
 	
 
 	@requires ({"id != null"}) // 2

@@ -29,9 +29,22 @@ public class Test {
 		fullBinaryTree.setLeftRight(new FullBinaryTree(10), new FullBinaryTree(10));
 		//fullBinaryTree.setLeft(new FullBinaryTree(10));
 		
-		PerfectBinaryTree perfectBinaryTree = new PerfectBinaryTree(10);
-		perfectBinaryTree.setLeftRight(new PerfectBinaryTree(10), new PerfectBinaryTree(10));
-		((PerfectBinaryTree)perfectBinaryTree.getLeft()).setLeftRight(new PerfectBinaryTree(10), new PerfectBinaryTree(10));
+		PerfectBinaryTree perfectBinaryTreeRoot = new PerfectBinaryTree(10);
+		PerfectBinaryTree perfectBinaryTreeRootLeft = new PerfectBinaryTree(10);
+		PerfectBinaryTree perfectBinaryTreeRootRight = new PerfectBinaryTree(15);
+		PerfectBinaryTree perfectBinaryTreeRootLeftLeft = new PerfectBinaryTree(10);
+		PerfectBinaryTree perfectBinaryTreeRootLeftRight = new PerfectBinaryTree(10);
+		PerfectBinaryTree perfectBinaryTreeRootRightLeft = new PerfectBinaryTree(10);
+		PerfectBinaryTree perfectBinaryTreeRootRightRight = new PerfectBinaryTree(10);
+		
+		perfectBinaryTreeRootLeft.setLeftRight(perfectBinaryTreeRootLeftLeft, perfectBinaryTreeRootLeftRight);
+		perfectBinaryTreeRootRight.setLeftRight(perfectBinaryTreeRootRightLeft, perfectBinaryTreeRootRightRight);
+		
+		perfectBinaryTreeRoot.setLeftRight(perfectBinaryTreeRootLeft, perfectBinaryTreeRootRight);
+		
+
+	//	((PerfectBinaryTree)perfectBinaryTree.getLeft()).setLeftRight(new PerfectBinaryTree(10), new PerfectBinaryTree(10));
+		System.out.println(perfectBinaryTreeRoot.sameHeight());
 	}
 
 }
