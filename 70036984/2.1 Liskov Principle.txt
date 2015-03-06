@@ -1,0 +1,8 @@
+The Liskov’s Principle states that an instance of a class can be referenced by a type of its base 
+class without having to change the base classes implementation of its methods, strengthen its preconditions, or weaken its postconditions.
+
+All the subclasses do not strengthen any preconditions or postconditions for the various methods they inherit from their base class.
+
+The Full Binary Tree and Perfect Binary Tree do not adhere to the Liskov’s Principle. The issue is that they have contractual specifications 
+that require two trees to be added to a trees left and right node at the same time, yet their base class contains methods setLeft and setRight 
+that will violate this invariant for these subclasses if used. 

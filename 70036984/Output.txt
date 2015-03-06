@@ -1,0 +1,15 @@
+The height is 4
+The sum is 7
+The height of the newly created BinTree is:1
+Newly created tree has no children
+Left: false
+Right: false
+Left: true
+Roots left most node should be equal to the empty node we just set: true
+Right: true
+Roots right most node should be equal to the empty node we just set: true
+The height of the newly created BalancedBinTree is: 3
+The newly created BalancedBinTree is balanced: true
+The FullBinarytree is valid: true
+The PerfectBinaryTree is valid: true
+the end
